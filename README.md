@@ -36,5 +36,5 @@ Les données sont stockées dans **MongoDB**.
 
 ### 1. Cloner le projet
 ```bash
-git clone https://github.com/ton-compte/microservices-projet-gl-2025.git
+git clone https://github.com/AlHamine/microservices-projet-gl-2025.git
 cd microservices-projet-gl-2025
