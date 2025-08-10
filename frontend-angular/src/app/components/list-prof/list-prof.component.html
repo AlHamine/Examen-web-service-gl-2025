@@ -1,0 +1,175 @@
+<div class="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 p-6">
+    <!-- Header Section -->
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center space-x-4">
+                <div class="bg-gradient-to-br from-emerald-500 to-green-600 p-3 rounded-2xl shadow-lg">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-4xl font-black text-gray-900">Liste des Professeurs</h1>
+                    <p class="text-emerald-600 font-semibold">Données du corps enseignant</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-emerald-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-600 font-medium">Total Professeurs</p>
+                        <p class="text-3xl font-bold text-emerald-600">{{ professeurs.length }}</p>
+                    </div>
+                    <div class="bg-emerald-100 p-3 rounded-xl">
+                        <svg class="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    
+                    <div class="bg-blue-100 p-3 rounded-xl">
+                        <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tableau des professeurs -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-emerald-100 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-emerald-100">
+                    <thead class="bg-gradient-to-r from-emerald-500 to-green-600">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Matricule</span>
+                                </div>
+                            </th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+                                    </svg>
+                                    <span>Grade</span>
+                                </div>
+                            </th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Professeur</span>
+                                </div>
+                            </th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                    </svg>
+                                    <span>Email</span>
+                                </div>
+                            </th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Rôle</span>
+                                </div>
+                            </th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Statut</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white/50 divide-y divide-emerald-50">
+                        <tr *ngFor="let professeur of professeurs; trackBy: trackByMatricule" class="hover:bg-emerald-50/50 transition-all duration-200">
+                            <td class="px-6 py-5 whitespace-nowrap">
+                                <div class="flex items-center space-x-3">
+                                    <div class="bg-gradient-to-br from-blue-400 to-blue-500 w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                                        {{ getMatriculeInitials(professeur.matricule) }}
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-bold text-gray-900">{{ professeur.matricule }}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5 whitespace-nowrap">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                    {{ professeur.grade }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-5 whitespace-nowrap">
+                                <div class="flex items-center space-x-3">
+                                    <div class="bg-gradient-to-br from-emerald-400 to-green-500 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                                        {{ getInitiales(professeur.prenom, professeur.nom) }}
+                                    </div>
+                                    <div>
+                                        <div class="text-lg font-bold text-gray-900">{{ professeur.nom }} {{ professeur.prenom }}</div>
+                                        <div class="text-sm text-emerald-600">Professeur</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">
+                                    <div class="flex items-center space-x-2">
+                                        <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                        </svg>
+                                        <span class="font-medium">{{ professeur.email }}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5 whitespace-nowrap">
+                                <span [ngClass]="{
+                                    'bg-blue-100 text-blue-800': professeur.role === 'ADMIN',
+                                    'bg-gray-100 text-gray-800': professeur.role === 'LAMBDA'
+                                }" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold">
+                                    {{ professeur.role }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-5 whitespace-nowrap">
+                                <span [ngClass]="{
+                                    'bg-green-100 text-green-800': professeur.status === 'Actif',
+                                    'bg-red-100 text-red-800': professeur.status === 'Inactif'
+                                }" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold">
+                                    {{ professeur.status }}
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Message si aucune donnée -->
+        <div *ngIf="professeurs.length === 0" class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-emerald-100 p-12 text-center">
+            <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+            </svg>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">Aucun professeur trouvé</h3>
+            <p class="text-gray-500">Il n'y a aucune donnée de professeur à afficher pour le moment.</p>
+        </div>
+    </div>
+</div>

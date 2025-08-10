@@ -1,0 +1,26 @@
+type Classe {
+  id: ID
+  libelle: String
+  niveau: String
+  specialite: String
+  departement: String
+}
+
+type Etudiant {
+  id: ID!
+  matricule: String
+  nom: String
+  prenom: String
+  telephone: String
+  adresse: String
+  classeId: String
+}
+
+type Query {
+  classes: [Classe]
+  rechercheClasse(libelle: String!): [Classe]
+  recherche(id: ID!): Classe
+  etudiantsByClasseId(classeId: String!): [Etudiant]
+  etudiantsByClasseLibelle(libelle: String!): [Etudiant]
+
+}
